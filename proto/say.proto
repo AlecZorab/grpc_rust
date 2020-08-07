@@ -1,0 +1,19 @@
+// version of protocol buffer used
+syntax = "proto3";
+// package name for buffer will be used later
+package hello;
+// service which can be executed
+service Say {
+  // takes a stream and returns a stream
+  rpc Bidirectional(stream SayRequest) returns (stream SayResponse);
+}
+// argument
+message SayRequest {
+  // data type and position of data
+  string name = 1;
+}
+// return value
+message SayResponse {
+  // data type and position of data
+  string message = 1;
+}
